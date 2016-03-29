@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MsExcel = Microsoft.Office.Interop.Excel;
 
 namespace ComWrapper.Excel
@@ -39,7 +35,7 @@ namespace ComWrapper.Excel
         /// <param name="count"></param>
         public void Add(Worksheet before = null, Worksheet after = null, object count = null)
         {
-            ComObject.Add(before == null ? null : before.ComObject, after == null ? null : after.ComObject, count == null ? null : count);
+            ComObject.Add(before?.ComObject, after?.ComObject, count);
         }
 
         /// <summary>

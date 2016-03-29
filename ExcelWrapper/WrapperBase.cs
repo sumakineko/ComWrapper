@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComWrapper
 {
@@ -93,8 +90,7 @@ namespace ComWrapper
                 List<Guid> keys = new List<Guid>(_children.Keys);
                 foreach (var key in keys)
                 {
-                    var obj = _children[key];
-                    if (obj != null) obj.Dispose();
+                    _children[key]?.Dispose();
                 }
 
                 Marshal.ReleaseComObject(ComObject);

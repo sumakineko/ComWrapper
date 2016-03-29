@@ -42,7 +42,7 @@ namespace ComWrapper.Excel
         /// <summary>
         /// 
         /// </summary>
-        public Application(): base(new MsExcel.Application())
+        public Application() : base(new MsExcel.Application())
         { }
 
         /// <summary>
