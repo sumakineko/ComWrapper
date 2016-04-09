@@ -34,6 +34,16 @@ namespace ComWrapper.Excel
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public Range this[string str]
+        {
+            get { return new Range(Parent, ComObject[str]); }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public int Column
         {
             get { return ComObject.Column; }
