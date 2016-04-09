@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using MsExcel = Microsoft.Office.Interop.Excel;
 
@@ -7,7 +8,7 @@ namespace ComWrapper.Excel
     /// <summary>
     /// 
     /// </summary>
-    public class Workbooks : WrapperBase<MsExcel.Workbooks>
+    public class Workbooks : WrapperBase<MsExcel.Workbooks>, IEnumerable<Workbook>
     {
         /// <summary>
         /// 
@@ -47,7 +48,7 @@ namespace ComWrapper.Excel
         /// 
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Workbook> GetEnumerator()
+        public IEnumerator<Workbook> GetEnumerator()
         {
             IEnumerator e = ComObject.GetEnumerator();
             while (e.MoveNext())
@@ -63,6 +64,11 @@ namespace ComWrapper.Excel
         public Workbook Open(string filename, bool readOnly = false)
         {
             return new Workbook(this, ComObject.Open(Filename: filename, ReadOnly: readOnly));
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

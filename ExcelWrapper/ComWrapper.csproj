@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Excel\Application.cs" />
+    <Compile Include="Excel\Name.cs" />
+    <Compile Include="Excel\Names.cs" />
     <Compile Include="Excel\Range.cs" />
     <Compile Include="Excel\Worksheet.cs" />
     <Compile Include="Excel\Sheets.cs" />
